@@ -1,12 +1,19 @@
 $(function(){
-  $.fn.excerptify = function() {	
-    var limit = 100;
+  $.fn.excerptify = function( options ) {	
+        
+    //default settings
+    var defaults = {
+	  limit: 100
+	}
+    
+    var options = $.extend({}, defaults, options); 
+
     var count = 0;
     
-	$('.pagepart').each(function(i, e){
+	this.each(function(i, e){
       $excerpt = $(e).find(">:first-child")
       count += $excerpt.text().length
-      while(count <= limit){
+      while(count <= options.limit){
         if (!$excerpt.length){
           break
         }
@@ -24,7 +31,7 @@ $(function(){
     
 
     //expander link click functionality and toggling
-    $('.pagepart .expand').click(function(ev){
+    this.find('.expand').click(function(ev){
       ev.preventDefault()
       if($(this).parent().find('.hide_me').is(':visible')){
  	    $(this).parent().find('.hide_me').hide()

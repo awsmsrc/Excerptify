@@ -1,0 +1,3 @@
+Exerptify is a simple jQuery plugin for creating excerpts with read more/read less links. 
+
+This plugin takes a different philosophy to other plugins that do this task as it does not make a hard cut at the specified character limit but intelligently allows the element at the cut off point to be displayed. 
